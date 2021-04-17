@@ -1,14 +1,34 @@
 //buttons and variables
 const startButton = document.querySelector("#start-btn")
+const questionContainerEl = document.querySelector("#question-container")
+let randomqQuestions, currentQuestion
 
+const questionElement = document.querySelector("#question")
+const answerElement = document.querySelector("#answer-buttons")
 
 //startgame function
 function startGame() {
     console.log("hello")
     //startButton.style.display = "none";
     document.querySelector("#start-control").setAttribute("class", "hide");
+    randomqQuestions= questionArr.sort(() => Math.random() -.5);
+    currentQuestion = 0;
+    questionContainerEl.classList.remove('questions-hide')
+    setNextQuestion()
 }
 
+//next question
+function setNextQuestion() {
+    displayQuestion(randomqQuestions[currentQuestion])
+}
+//display question
+function displayQuestion(question) {
+    questionElement.innerText = question.question
+}
+//select answer
+function selectAnser() {
+
+}
 //question array with objects
 const questionArr =[
     {
