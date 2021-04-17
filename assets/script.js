@@ -6,9 +6,18 @@ let randomqQuestions, currentQuestion
 const questionElement = document.querySelector("#question")
 const answerElement = document.querySelector("#answer-buttons")
 
+//question arr
+const questionArr =[
+    {
+    question: "Practice question",
+    choices: ['afakeanswer', 'b', 'c', 'd'],
+    correctAnswer: 'b'
+    }
+]
+
 //startgame function
 function startGame() {
-    console.log("hello")
+   
     //startButton.style.display = "none";
     document.querySelector("#start-control").setAttribute("class", "hide");
     randomqQuestions= questionArr.sort(() => Math.random() -.5);
@@ -21,26 +30,33 @@ function startGame() {
 function setNextQuestion() {
     displayQuestion(randomqQuestions[currentQuestion])
 }
-//display question
+
+//display questions and answers
 function displayQuestion(question) {
+    console.log(question)
+    //display question
     questionElement.innerText = question.question
+    var choices = question.choices
+
+    for(var i=0;i<choices.length;i++){
+        var answerBtn=document.createElement('button');
+        var buttonName = choices[i]
+        answerBtn.setAttribute('class','btn')
+        answerBtn.setAttribute('id', 'btn-' + (i+1));
+        answerBtn.setAttribute("data-choice", buttonName)
+        answerBtn.innerHTML = buttonName
+        answerElement.appendChild(answerBtn);
+        console.log(buttonName)
+    }
 }
+
+
 //select answer
-function selectAnser() {
+function selectAnswer() {
 
 }
 //question array with objects
-const questionArr =[
-    {
-    question: "Practice question",
-    answers: [
-        {option: 'x', correct: true},
-        {option: 'y', correct: false},
-        {option: 'z', correct: false},
-        {option: 'a', correct: false}
-    ]
-    }
-]
+
 
 //function to display questions and answers 
 
