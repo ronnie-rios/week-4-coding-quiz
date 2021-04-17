@@ -1,0 +1,54 @@
+.hide {
+    display: none;
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 8px 2px;
+}
+
+.btn-display {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px 8px;
+    
+}
+
+.btn:hover {
+    background-color: lightskyblue;
+}
+
+.btn.correct {
+    background-color: green;
+    color:black;
+}
+
+.btn.wrong {
+    background-color: red;
+}
+
+.start-btn {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.start-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questions {
+    display: none;
+}

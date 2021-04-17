@@ -1,9 +1,12 @@
 //buttons and variables
 const startButton = document.querySelector("#start-btn")
 
+
 //startgame function
 function startGame() {
     console.log("hello")
+    //startButton.style.display = "none";
+    document.querySelector("#start-control").setAttribute("class", "hide");
 }
 
 //question array with objects
