@@ -4,7 +4,7 @@ body {
 }
 
 .nav-display {
-    display: inline;
+  
     padding: 20px;
     margin: auto;
 }
@@ -15,7 +15,6 @@ body {
 }
 
 .container {
-    width: 800px;
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
@@ -25,11 +24,7 @@ body {
     justify-content: center;
 }
 
-.btn-display {
-    display: grid;
-    gap: 10px;
-    margin: 20px 0;
-}
+
 
 .btn {
     border: 1px solid black;
