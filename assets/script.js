@@ -15,19 +15,19 @@ const questionArr =[
     {
     question: "Which of the following is not a dataype?",
     choices: ['boolean', 'JSON', 'string', 'interger'],
-    correctAnswer: 'JSON'
+    correctAnswer: 'choice2'
     },
 
     {
     question: "Which of the following would you use to iterate though an array",
     choices: ['array.loop', 'If statement', 'For Loop', 'prompt'],
-    correctAnswer: 'For Loop'
+    correctAnswer: 'choice3'
     },
 
     {
     question: "Booleans have what two values",
     choices: ['true or false', '1 or 0', 'string or number', 'prompt or function'],
-    correctAnswer: 'true or false'
+    correctAnswer: 'choice1'
     },
    
 ]
@@ -63,20 +63,20 @@ function displayQuestion(question) {
     //     answerBtn.onclick = checkAnswer;
     //       }
     var answer1 =
-    "<button id='choice1' class='btn btn-primary btn-lg btn-block answerChoice'>" +
+    "<button id='choice1' class='btn btn-primary answerChoice' value= 'choice1'>" +
     questionArr[questionIndex].choices[0];
     var answer2 =
-        "<button id='choice2' class='btn btn-primary btn-lg btn-block answerChoice'>" +
+        "<button id='choice2' class='btn btn-primary' value='choice2'>" +
         questionArr[questionIndex].choices[1];
     var answer3 =
-        "<button id='choice3' class='btn btn-primary btn-lg btn-block answerChoice'>" +
+        "<button id='choice3' class='btn btn-primary' value='answer3'>" +
         questionArr[questionIndex].choices[2];
     var answer4 =
-        "<button id='choice4' class='btn btn-primary btn-lg btn-block answerChoice'>" +
+        "<button id='choice4' class='btn btn-primary' value='answer4'>" +
         questionArr[questionIndex].choices[3];
 
   answerElement.innerHTML =
-    "<ul class='no-bullets'><li>" +
+    "<ul class=answer-list'><li>" +
     answer1 +
     "</li><li>" +
     answer2 +
@@ -101,14 +101,15 @@ function displayQuestion(question) {
 function checkAnswer(e) {
     var checkedAnswer = questionArr[questionIndex].correctAnswer
     
-    var userAnswer = e.target.value
+    var userAnswer =e.target.id
    if (userAnswer === checkedAnswer) {
        console.log ("hello, youre right")
    } else {
        console.log("you're wrong")
    }
-   questionIndex++
-   setNextQuestion();
+
+ nIndex++
+    setNextQuestion();
 }
 
 
