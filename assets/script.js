@@ -37,7 +37,8 @@ function startGame() {
     document.querySelector("#start-control").setAttribute("class", "hide");
     currentQuestion = 0;
     questionContainerEl.classList.remove('questions-hide')
-    setNextQuestion()
+    countDown();
+    setNextQuestion();
 }
 
 //next question
@@ -88,15 +89,20 @@ function displayQuestion(question) {
 }
 
 //timer function to display timer and start countdown
-// function countdown() {
-//     var timeleft = 60;
-//     var timeInterval = setInterval(function() {
-//         if (timeLeft > 1) {
-//             console.log(hello)
-//             timeLeft--
-//         }
-//     })
-// }
+function countDown(){
+    timer = setInterval(function(){
+        if(timeLeft<0){
+            timeLeft=0;
+        }
+    document.getElementById('countdown').innerHTML = 'Time: ' + timeLeft;
+    if(timeLeft <= 0){
+        clearInterval(timer);
+        // footer.innerHTML = "<h1>GAME OVER!</h1>";
+        saveScoreForm();
+    }
+    timeLeft--;
+}, 1000);
+}
 //gets user button click and checks it to see if it's correct
 function checkAnswer(e) {
     var checkedAnswer = questionArr[questionIndex].correctAnswer
@@ -104,11 +110,13 @@ function checkAnswer(e) {
     var userAnswer =e.target.id
    if (userAnswer === checkedAnswer) {
        console.log ("hello, youre right")
+     
    } else {
        console.log("you're wrong")
+      timeLeft = timeLeft - 10;
    }
 
- nIndex++
+    questionIndex++
     setNextQuestion();
 }
 
