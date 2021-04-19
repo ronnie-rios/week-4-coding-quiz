@@ -11,12 +11,8 @@
     
 </header>
 <body>
-    <nav>
-        <div class="high-scores">
-            <a>High Scores</a>
-        </div>
-
-        <div class="timer">
+    <nav class="nav-display">
+            <div class="timer">
             <div id="countdown">Time: <span id="time"> 60</span>
             </div>
         </div>
@@ -27,15 +23,16 @@
             <div id="question">Question Holder</div>
             <div class="btn-display" id ="answer-buttons">
              <!--buttons will be created and stored here-->
-            </div>
             
+            </div>
+            <div id ="result"></div>
         </div>
         <div id="start-control">
-            <p>Welcome to the quiz! For each answer correct, it's plus 10 points. For each answer wrong, it's minus 5 points and 10 seconds off the timer. Good luck!</p>
+            <p>Welcome to the JavaScript quiz! For each answer correct, it's plus 10 points. For each answer wrong, it's minus 5 points and 10 seconds off the timer. Game ends when you get to the last question or the timer hits 0. Good luck!</p>
             <button id="start-btn" class="start-btn btn">Start</button>
         </div>
-        
     </div>
+    
     <script src="assets/script.js"></script>
 </body>
 </html>

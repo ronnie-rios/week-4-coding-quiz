@@ -1,3 +1,15 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+}
+
+.nav-display {
+    display: inline;
+    padding: 20px;
+    margin: auto;
+}
+
+
 .hide {
     display: none;
 }
@@ -9,6 +21,8 @@
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 8px 2px;
+    display: flex;
+    justify-content: center;
 }
 
 .btn-display {
