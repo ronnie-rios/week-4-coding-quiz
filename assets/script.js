@@ -1,15 +1,17 @@
 //elements
 const startButton = document.querySelector("#start-btn")
 const questionContainerEl = document.querySelector("#question-container")
+const startingElement = document.querySelector("#start-control")
 
 //question and andswer elements
 const questionElement = document.querySelector("#question")
 const answerElement = document.querySelector("#answer-buttons")
 //time left
 var timeLeft = 60;
-let randomqQuestions, currentQuestion
+let score = 0
 
 let questionIndex = 0
+
 //question array
 const questionArr =[
     {
@@ -31,12 +33,13 @@ const questionArr =[
     },
    
 ]
-
+var lastQuestion = 3
 //startgame function
 function startGame() {
     document.querySelector("#start-control").setAttribute("class", "hide");
     currentQuestion = 0;
     questionContainerEl.classList.remove('questions-hide')
+    startingElement.classList.remove('start-control')
     countDown();
     setNextQuestion();
 }
@@ -44,25 +47,14 @@ function startGame() {
 //next question
 function setNextQuestion() {
     displayQuestion(questionArr[questionIndex])
-   
+  
 }
 
 //dynamically displays questions and answers from objects in questionArr
 function displayQuestion(question) {
     //display question
     questionElement.innerText = question.question
-    // var answerChoices = question.choices
-    //for loop to append answer choices and buttons from questionArr
-    // for(var i=0;i<choices.length;i++){
-    //     var answerBtn=document.createElement('button');
-    //     var buttonName = choices[i]
-    //     answerBtn.setAttribute('class','btn')
-    //     answerBtn.setAttribute('id', 'btn-' + (i+1));
-    //     answerBtn.setAttribute("value", buttonName)
-    //     answerBtn.innerHTML = buttonName
-    //     answerElement.appendChild(answerBtn);
-    //     answerBtn.onclick = checkAnswer;
-    //       }
+    //answer choices creation
     var answer1 =
     "<button id='choice1' class='btn btn-primary answerChoice' value= 'choice1'>" +
     questionArr[questionIndex].choices[0];
@@ -75,7 +67,7 @@ function displayQuestion(question) {
     var answer4 =
         "<button id='choice4' class='btn btn-primary' value='answer4'>" +
         questionArr[questionIndex].choices[3];
-
+//adding answers to innerHTML
   answerElement.innerHTML =
     "<ul class=answer-list'><li>" +
     answer1 +
@@ -95,10 +87,8 @@ function countDown(){
             timeLeft=0;
         }
     document.getElementById('countdown').innerHTML = 'Time: ' + timeLeft;
-    if(timeLeft <= 0){
+    if(timeLeft <= 0 || questionIndex == 3){
         clearInterval(timer);
-        // footer.innerHTML = "<h1>GAME OVER!</h1>";
-        saveScoreForm();
     }
     timeLeft--;
 }, 1000);
@@ -109,18 +99,30 @@ function checkAnswer(e) {
     
     var userAnswer =e.target.id
    if (userAnswer === checkedAnswer) {
-       console.log ("hello, youre right")
+       console.log ("hello, youre right");
+       score += 10;
      
    } else {
        console.log("you're wrong")
       timeLeft = timeLeft - 10;
+      score -= 5;
    }
 
     questionIndex++
-    setNextQuestion();
+    console.log(score);
+    
+   if (questionIndex == lastQuestion){
+       userScore();
+   } else {
+       setNextQuestion();
+   }}
+   
+
+function userScore() {
+    questionElement.innerText ="Congratulations on finishing."
+    answerElement.innerHTML = "Your final score is " + score + ".";
+   
 }
-
-
 //function to save score to local storage
 
 //funciton to display high schoe when click on 'view score'

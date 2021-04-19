@@ -28,14 +28,6 @@
     background-color: lightskyblue;
 }
 
-.btn.correct {
-    background-color: green;
-    color:black;
-}
-
-.btn.wrong {
-    background-color: red;
-}
 
 .start-btn {
     font-size: 1.4rem;
